@@ -3,7 +3,9 @@ const posts = express.Router()
 const Post = require('../models/post.js')
 
 posts.get('/', (req, res) => {
-    res.send(Post)
+    res.render('Index', {
+        posts: Post
+    })
 })
 
 // SHOW

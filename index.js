@@ -8,6 +8,11 @@ const app = express()
 
 app.use('/posts', require('./controllers/posts_controller'))
 
+// MIDDLEWARE
+app.set('views', __dirname + '/views')
+app.set('view engine', 'jsx')
+app.engine('jsx', require('express-react-views').createEngine())
+
 // Declare routes that people can visit on the application.
 app.get('/', function (req, res) {
     res.send('Hello World')
