@@ -6,7 +6,7 @@ const express = require('express')
 // Initialize the app object.
 const app = express()
 
-app.use('/posts', require('./controllers/posts'))
+app.use('/posts', require('./controllers/posts_controller'))
 
 // Declare routes that people can visit on the application.
 app.get('/', function (req, res) {
