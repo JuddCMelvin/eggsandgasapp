@@ -34,6 +34,10 @@ app.get('/:color', function (req, res) {
 app.post('/:color', (req, res) => {
     res.send('Hello world')
 })
+
+app.get('*', (req,res) => {
+    res.status(404).send('<h1>404 Page</h1>')
+})
 // Listen for connections.
 app.listen(process.env.PORT, function () {
     console.log('I am awake!')
