@@ -4,7 +4,8 @@ const Post = require('../models/post.js')
 
 posts.get('/', (req, res) => {
     res.render('Index', {
-        posts: Post
+        posts: Post,
+        title: 'Index Page'
     })
 })
 

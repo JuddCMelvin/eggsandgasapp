@@ -1,9 +1,9 @@
 const React = require('react')
 const Default = require('./layouts/default')
 
-function Index({posts}) {
+function Index({posts, title}) {
     return (
-        <Default>
+        <Default title={title}>
             <h2>Index Page</h2>
             {/* <p>I have {posts[0].title}</p> */}
             <ul>
