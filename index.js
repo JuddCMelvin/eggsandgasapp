@@ -12,6 +12,7 @@ app.use('/posts', require('./controllers/posts_controller'))
 app.set('views', __dirname + '/views')
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
+app.use(express.static('public'))
 
 // Declare routes that people can visit on the application.
 app.get('/', function (req, res) {

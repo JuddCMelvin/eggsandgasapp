@@ -11,7 +11,13 @@ posts.get('/', (req, res) => {
 
 // SHOW
 posts.get('/:id', (req, res) => {
-    res.send(Post[req.params.id])
+    if (Post[req.params.id]) {
+        res.render('Show', {
+            post: Post[req.params.id]
+        })
+    } else {
+        res.send('error404')
+    }
 })
 
 module.exports = posts
