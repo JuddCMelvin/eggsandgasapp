@@ -17,6 +17,9 @@ function Index({posts, title}) {
                     })
                 }
             </ul>
+            <div className="newButton">
+                <a href="/posts/new"><button>Add a new Post</button></a>
+            </div>
         </Default>
     )
 }

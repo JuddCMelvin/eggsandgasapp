@@ -6,13 +6,15 @@ const express = require('express')
 // Initialize the app object.
 const app = express()
 
-app.use('/posts', require('./controllers/posts_controller'))
-
 // MIDDLEWARE
 app.set('views', __dirname + '/views')
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
 app.use(express.static('public'))
+app.use(express.urlencoded({extended: true}))
+
+
+app.use('/posts', require('./controllers/posts_controller'))
 
 // Declare routes that people can visit on the application.
 app.get('/', function (req, res) {
