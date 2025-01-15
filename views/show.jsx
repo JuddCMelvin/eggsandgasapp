@@ -13,6 +13,7 @@ function Show({ post, index }) {
             <form action={`/posts/${index}?_method=DELETE`} method="POST">
                 <input type='submit' value="DELETE" />
             </form>
+            <a href={`/posts/${index}/edit`}><button>Edit</button></a>
         </Default>
     )
 }

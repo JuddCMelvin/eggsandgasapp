@@ -24,6 +24,14 @@ posts.post('/', (req, res) => {
     res.redirect('/posts')
 })
 
+// EDIT
+posts.get('/:id/edit', (req, res) => {
+    res.render('edit', {
+        posts: Post[req.params.id],
+        index: req.params.id
+    })
+})
+
 // SHOW
 posts.get('/:id', (req, res) => {
     if (Post[req.params.id]) {
@@ -34,6 +42,12 @@ posts.get('/:id', (req, res) => {
     } else {
         res.render('error404')
     }
+})
+
+// UPDATE
+posts.put('/:id', (req, res) => {
+    Post[req.params.id] = req.body
+    res.redirect(`/posts/${req.params.id}`)
 })
 
 // DELETE
