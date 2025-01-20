@@ -9,8 +9,8 @@ function Index({posts, title}) {
             <ul>
                 {
                     posts.map((post, index) => {
-                        return(<li key={index}>
-                            <a href={`/posts/${index}`}>
+                        return(<li key={post.id}>
+                            <a href={`/posts/${post.id}`}>
                                 {post.title}
                             </a>
                         </li>)
