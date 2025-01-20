@@ -2,6 +2,7 @@ const express = require('express')
 const posts = express.Router()
 // const Post = require('../models/post.js')
 const db = require('../models')
+const postSeedData = require('../models/seed.js')
 
 posts.get('/', (req, res) => {
     db.Post.find()
@@ -93,6 +94,14 @@ posts.delete('/:id', (req, res) => {
     db.Post.findByIdAndDelete(req.params.id)
         .then(deletePost => {
             res.status(303).redirect('/posts')
+        })
+})
+
+// SEED ROUTE 
+posts.get('/data/seed', (req, res) => {
+    db.Post.insertMany(postSeedData)
+        .then(createdPosts => {
+            res.redirect('/posts')
         })
 })
 
